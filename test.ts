@@ -4,7 +4,7 @@ import type { page } from './types.d';
 
 describe('DataGrid', () => {
   beforeAll(async () => {
-    //jest.setTimeout(300000);
+    jest.setTimeout(300000);
     //await jestPuppeteer.debug();
     await page.goto('file:///D:/devextreme/DevExtreme/testing/testcafe/tests/container.html');
   });
@@ -141,9 +141,8 @@ describe('DataGrid', () => {
   });
   async function hasClass(element, className) {
     const el = await element;
-    return  page.evaluate((el) => page
-    .evaluate((el: Element, className: string) => {
+    return  page.evaluate((el: Element, className: string) => {
       return $(el).hasClass(className);
-    }, el, className));
+    }, el, className);
   }
 });
